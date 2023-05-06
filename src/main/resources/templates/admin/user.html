@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
+        <style>
+            table {
+                width:100%;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            tr:nth-child(even) {
+                background-color: #ccc;
+            }
+            tr:nth-child(odd) {
+                background-color: #fff;
+            }
+            th {
+                background-color: #888;
+                color: white;
+            }
+        </style>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +36,24 @@
             <nav th:replace="~{layout/admin-layout :: navbar}"></nav>
             <main class="main_grid">
                 <h1>Welcome Admin</h1>
+                <br>
+                <table>
+                    <caption>Zarejestrowani Użytkownicy Language Platform</caption>
+                    <thead>
+                    <tr>
+                        <th>ID</th><th>Role</th><th>E-mail</th><th>Phone</th><th>City</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+                </br>
             </main>
             <footer th:replace="~{layout/layout :: footer}"></footer>
         </div>
+
     </body>
 </html>

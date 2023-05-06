@@ -36,6 +36,20 @@ public class ApplicationAdminController {
         return "/admin/index";
     }
 
+    @GetMapping({"/admin/api/news"})
+    public String getAdminNews(){
+        return "/admin/news";
+    }
+
+    @GetMapping({"/admin/api/notification"})
+    public String getAdminNotification(){
+        return "/admin/notification";
+    }
+
+    @GetMapping({"/admin/api/user"})
+    public String getAdminUser(){
+        return "/admin/user";
+    }
 
 
 }

@@ -42,14 +42,26 @@ public class LoginSecurity {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                 .requestMatchers("/admin/**").hasAuthority(UserRole.ADMIN.getCodeWithRole())
                         .anyRequest().permitAll()
+
                 )
                 .formLogin(
-                        form -> form
-                        .loginPage("/login")
-                                .defaultSuccessUrl("/logging")
-                                .usernameParameter("email")
-                                .passwordParameter("password")
-                                .permitAll()
+                        form -> {
+                            try {
+                                form
+                                .loginPage("/login")
+                                        .defaultSuccessUrl("/logging")
+                                        .usernameParameter("email")
+                                        .passwordParameter("password")
+                                        .permitAll()
+                                        .and()
+                                        .logout()
+                                        .logoutUrl("/post/logout")
+                                        .logoutSuccessUrl("/")
+                                        .permitAll();
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                 );
 
         return httpSecurity.build();
